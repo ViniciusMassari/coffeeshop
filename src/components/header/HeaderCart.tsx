@@ -1,9 +1,6 @@
 import { View, Text } from 'react-native';
 
-import React from 'react';
 import { Box } from '../ui/box';
-import { VStack } from '../ui/vstack';
-import { Badge, BadgeText } from '../ui/badge';
 import Cart from '../../assets/Cart';
 
 export const HeaderCart = () => {

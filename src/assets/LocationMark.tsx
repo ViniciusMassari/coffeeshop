@@ -12,5 +12,5 @@ const LocationMark = (props: LocationMarkProps) => (
     />
   </Svg>
 );
-const Memo = memo(LocationMark);
-export default Memo;
+const LocationMarkIcon = memo(LocationMark);
+export default LocationMarkIcon;

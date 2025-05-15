@@ -20,18 +20,30 @@ module.exports = {
     extend: {
       colors: {
         error: {
-          0: 'rgb(var(--color-error-0)/<alpha-value>)',
-          50: 'rgb(var(--color-error-50)/<alpha-value>)',
-          100: 'rgb(var(--color-error-100)/<alpha-value>)',
-          200: 'rgb(var(--color-error-200)/<alpha-value>)',
-          300: 'rgb(var(--color-error-300)/<alpha-value>)',
-          400: 'rgb(var(--color-error-400)/<alpha-value>)',
-          500: 'rgb(var(--color-error-500)/<alpha-value>)',
-          600: 'rgb(var(--color-error-600)/<alpha-value>)',
-          700: 'rgb(var(--color-error-700)/<alpha-value>)',
-          800: 'rgb(var(--color-error-800)/<alpha-value>)',
-          900: 'rgb(var(--color-error-900)/<alpha-value>)',
-          950: 'rgb(var(--color-error-950)/<alpha-value>)',
+          100: '#F2DFD8',
+          300: '##E8BAAB',
+          700: '#C44117',
+        },
+        white: '#FFF',
+        gray: {
+          100: '#FAFAFA',
+          200: '#F3F2F2',
+          300: '#EDEDED',
+          400: '#E6E5E5',
+          500: '#D7D5D5',
+          600: '#8D8686',
+          700: '#574F4D',
+          800: '#403937',
+          900: '#272221',
+        },
+        yellow: {
+          500: '#DBAC2C',
+          700: '#C47F17',
+        },
+        purple: {
+          100: '#EBE5F9',
+          300: '#8047F8',
+          700: '#4B2995',
         },
 
         typography: {
@@ -121,34 +133,6 @@ module.exports = {
         'soft-2': '0px 0px 20px rgba(38, 38, 38, 0.2)',
         'soft-3': '0px 0px 30px rgba(38, 38, 38, 0.1)',
         'soft-4': '0px 0px 40px rgba(38, 38, 38, 0.1)',
-      },
-    },
-    colors: {
-      error: {
-        100: '#F2DFD8',
-        300: '##E8BAAB',
-        700: '#C44117',
-      },
-      white: '#FFF',
-      gray: {
-        100: '#FAFAFA',
-        200: '#F3F2F2',
-        300: '#EDEDED',
-        400: '#E6E5E5',
-        500: '#D7D5D5',
-        600: '#D7D5D5',
-        700: '#574F4D',
-        800: '#403937',
-        900: '#272221',
-      },
-      yellow: {
-        500: '#DBAC2C',
-        700: '#C47F17',
-      },
-      purple: {
-        100: '#EBE5F9',
-        300: '#8047F8',
-        700: '#4B2995',
       },
     },
   },

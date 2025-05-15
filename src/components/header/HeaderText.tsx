@@ -1,6 +1,13 @@
-import { Text } from 'react-native';
-import React from 'react';
-
-export const HeaderText = () => {
-  return <Text>HeaderText</Text>;
+import { View } from 'react-native';
+import { PropsWithChildren } from 'react';
+interface HeaderTextProps {}
+export const HeaderText = ({
+  children,
+  ...props
+}: PropsWithChildren<HeaderTextProps>) => {
+  return (
+    <View {...props} className='flex flex-row justify-center items-center'>
+      {children}
+    </View>
+  );
 };
