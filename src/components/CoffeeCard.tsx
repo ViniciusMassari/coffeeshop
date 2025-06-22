@@ -1,28 +1,94 @@
-import { Image, Text, View } from 'react-native';
-import React from 'react';
-import { VStack } from './ui/vstack';
+import { Dimensions, Image, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { CoffeeCardInfo } from '../types/CoffeeCardInfo';
+import Animated, {
+  AnimatedRef,
+  Easing,
+  interpolate,
+  useAnimatedRef,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
+import { coffeeImage } from '../assets/mock/coffeeImage';
 
-export const CoffeeCard = () => {
+interface CoffeeCardProps {
+  coffeeCardInfo: CoffeeCardInfo;
+  scrollXPosition?: number;
+}
+export const CoffeeCard = ({
+  coffeeCardInfo,
+  scrollXPosition,
+}: CoffeeCardProps) => {
+  const animatedRef: AnimatedRef<Animated.View> = useAnimatedRef();
+  const [cardXPosition, setCardXPosition] = useState(0);
+  const isCardCentered = useSharedValue(0);
+
+  useEffect(() => {
+    const card = animatedRef.current;
+    if (card) {
+      card.measure((x) => {
+        setCardXPosition(x);
+      });
+    }
+  }, [animatedRef.current]);
+
+  useEffect(() => {
+    if (scrollXPosition !== undefined) {
+      const SCREEN_WIDTH = Dimensions.get('window').width;
+      const ITEM_WIDTH = 210;
+      const SCREEN_CENTER = scrollXPosition + SCREEN_WIDTH / 2;
+
+      const cardCenter = cardXPosition + ITEM_WIDTH / 2;
+
+      const distanceToCenter = Math.abs(cardCenter - SCREEN_CENTER);
+
+      const isCentered = distanceToCenter < 100; // 100px de diferença é "centralizado o suficiente"
+
+      if (isCentered) {
+        isCardCentered.value = withSpring(1, { duration: 1200 });
+      } else {
+        isCardCentered.value = withSpring(0, { duration: 1200 });
+      }
+    }
+  }, [scrollXPosition, cardXPosition]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          scale: interpolate(isCardCentered.value, [0, 1], [0.8, 1.0]),
+        },
+      ],
+    };
+  });
+
   return (
-    <View className='bg-gray-300 max-w-52 min-h-[262px] max-h-[262px] items-center  self-center w-full rounded-tr-[36px] rounded-tl-md rounded-bl-[36px] rounded-br-md'>
+    <Animated.View
+      ref={animatedRef}
+      style={[animatedStyle]}
+      className='bg-gray-300 max-h-[240px] mt-2 max-w-52 mr-8  items-center  rounded-tr-[36px] rounded-tl-md rounded-bl-[36px] rounded-br-md'
+    >
       <Image
-        className='max-w-[120px] max-h-[120px] self-center -mt-6'
-        source={require('@assets/img/latte.png')}
+        className='max-w-[120px] max-h-[120px] self-center -mt-10'
+        source={coffeeImage[coffeeCardInfo.imageKey]}
+        accessibilityLabel={`${coffeeCardInfo.title} image`}
       />
-
-      <Text className='mt-2 text-[10px] uppercase bg color-purple-300 bg-purple-100 px-2 py-1 rounded-[100px] text-center'>
-        Especial
-      </Text>
-      <Text className='color-gray-800 text-title-md mt-3 text-center'>
-        Irlândes
-      </Text>
-      <Text className='color-gray-600 text-[12px] text-center px-2'>
-        Bebida a base de café, uísque irlandês, açúcar e chantilly
-      </Text>
-      <Text className='mt-4 text-title-lg color-yellow-700'>
-        {' '}
-        <Text className='text-title-xs'>R$</Text> 9,90
-      </Text>
-    </View>
+      <View className='mt-2 gap-2 flex flex-col justify-center items-center'>
+        <Text className=' text-[10px] uppercase bg color-purple-300 bg-purple-100 px-2 py-1 rounded-[100px] text-center'>
+          {coffeeCardInfo.label}
+        </Text>
+        <Text className='color-gray-800 text-title-md  text-center'>
+          {coffeeCardInfo.title}
+        </Text>
+        <Text className='color-gray-600 text-[12px] text-center px-2'>
+          {coffeeCardInfo.description}
+        </Text>
+        <Text className=' text-title-lg color-yellow-700'>
+          <Text className='text-title-xs'>R$</Text> {coffeeCardInfo.price}
+        </Text>
+      </View>
+    </Animated.View>
   );
 };

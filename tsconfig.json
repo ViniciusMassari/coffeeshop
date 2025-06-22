@@ -5,10 +5,10 @@
     "jsx": "react-native",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["src/components/*"],
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
       "tailwind.config": ["./tailwind.config.js"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["./src/assets/*"]
     }
   },
   "include": [

@@ -122,6 +122,20 @@ module.exports = {
             fontWeight: '700',
           },
         ],
+        tag: [
+          '10px',
+          {
+            lineHeight: '130%',
+            fontWeight: '700',
+          },
+        ],
+        button: [
+          '14px',
+          {
+            lineHeight: '160%',
+            fontWeight: '700',
+          },
+        ],
       },
       boxShadow: {
         'hard-1': '-2px 2px 8px 0px rgba(38, 38, 38, 0.20)',

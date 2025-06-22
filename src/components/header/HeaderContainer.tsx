@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import { PropsWithChildren } from 'react';
+
 interface HeaderContainerProps {}
 export const HeaderContainer = ({
   children,
@@ -8,7 +9,8 @@ export const HeaderContainer = ({
   return (
     <View
       {...props}
-      className='justify-between items-center flex-row absolute z-10 inset-0 h-20 bg-transparent px-8 mt-12'
+      className='justify-between items-center 
+        flex-row sticky bg-gray-900 z-10 min-h-20  px-8 py-5'
     >
       {children}
     </View>

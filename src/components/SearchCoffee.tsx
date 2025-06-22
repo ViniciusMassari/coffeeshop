@@ -6,7 +6,7 @@ import { SearchIcon } from './ui/icon';
 export const SearchCoffee = () => {
   return (
     <>
-      <Text className='text-white mt-36 text-title-md'>
+      <Text className='text-white  text-title-md mt-4'>
         Encontre o café perfeito para qualquer hora do dia
       </Text>
       <Input

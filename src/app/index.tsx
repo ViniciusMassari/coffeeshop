@@ -2,8 +2,6 @@ import { useFonts } from 'expo-font';
 
 import { SplashScreen } from '../screens/SplashScreen';
 import RippleEffect from '@components/RippleEffect';
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
   const [loaded, error] = useFonts({

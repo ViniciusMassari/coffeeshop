@@ -6,7 +6,10 @@ export const HeaderText = ({
   ...props
 }: PropsWithChildren<HeaderTextProps>) => {
   return (
-    <View {...props} className='flex flex-row justify-center items-center'>
+    <View
+      {...props}
+      className=' flex-1 flex-row justify-between items-center text-center  mt-7 '
+    >
       {children}
     </View>
   );
