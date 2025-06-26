@@ -19,7 +19,9 @@ export const SplashScreenLogo = () => {
     <Animated.View
       layout={LinearTransition.springify().withCallback((finished) => {
         if (finished) {
-          runOnJS(router.navigate)('/home');
+          console.log('finalizou animação');
+          runOnJS(router.navigate)('/product/1');
+          return;
         }
       })}
       className='flex-row gap-4'

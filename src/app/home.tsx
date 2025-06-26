@@ -10,6 +10,7 @@ import { CoffeeListHeader } from '../components/CoffeeList/CoffeeListHeader';
 import { useRef } from 'react';
 import { options } from '../assets/mock/coffeeOptions';
 import { Tag } from '../components/Tag';
+import { Link } from 'expo-router';
 
 export default function Home() {
   const sectionListRef = useRef<SectionList>(null);

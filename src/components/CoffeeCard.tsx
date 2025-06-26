@@ -68,7 +68,7 @@ export const CoffeeCard = ({
     <Animated.View
       ref={animatedRef}
       style={[animatedStyle]}
-      className='bg-gray-300 max-h-[240px] mt-2 max-w-52 mr-8  items-center  rounded-tr-[36px] rounded-tl-md rounded-bl-[36px] rounded-br-md'
+      className='bg-gray-300 max-h-[240px] mt-2 max-w-52 mr-8  items-center  rounded-tr-[36px] rounded-tl-md rounded-bl-[36px] rounded-br-md shadow-cardShadow'
     >
       <Image
         className='max-w-[120px] max-h-[120px] self-center -mt-10'
