@@ -3,6 +3,7 @@ import React from 'react';
 import { CoffeeInfoListType } from '../assets/mock/coffeeListData';
 import { coffeeImage } from '../assets/mock/coffeeImage';
 import { Link } from 'expo-router';
+import { CoffeeGoldenPrice } from './CoffeeGoldenPrice';
 interface HorizontalCoffeeCardProps {
   cardInfo: CoffeeInfoListType;
 }
@@ -23,9 +24,7 @@ export const HorizontalCoffeeCard = ({
             {cardInfo.title}
           </Text>
           <Text className='px-1'>{cardInfo.description}</Text>
-          <Text className='text-title-lg color-yellow-700 mb-2'>
-            <Text className='text-title-xs'>R$</Text> {cardInfo.price}
-          </Text>
+          <CoffeeGoldenPrice price={cardInfo.price} />
         </View>
       </View>
     </Link>

@@ -12,6 +12,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { coffeeImage } from '../assets/mock/coffeeImage';
+import { CoffeeGoldenPrice } from './CoffeeGoldenPrice';
 
 interface CoffeeCardProps {
   coffeeCardInfo: CoffeeCardInfo;
@@ -85,9 +86,7 @@ export const CoffeeCard = ({
         <Text className='color-gray-600 text-[12px] text-center px-2'>
           {coffeeCardInfo.description}
         </Text>
-        <Text className=' text-title-lg color-yellow-700'>
-          <Text className='text-title-xs'>R$</Text> {coffeeCardInfo.price}
-        </Text>
+        <CoffeeGoldenPrice price={coffeeCardInfo.price} />
       </View>
     </Animated.View>
   );

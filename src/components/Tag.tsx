@@ -13,7 +13,7 @@ export const Tag = ({ label, handleScrollTo }: TagProps) => {
         handleScrollTo(label);
       }}
       onPressOut={() => setIsPressed(false)}
-      className={`border rounded-[100px] px-3 py-[6px] ${
+      className={`border rounded-tag px-3 py-[6px] ${
         isPressed ? 'bg-purple-300 border-transparent' : ''
       }`}
     >

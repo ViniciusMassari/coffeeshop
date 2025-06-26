@@ -27,8 +27,6 @@ const RippleEffect = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const finalRadius = Math.hypot(width, height);
-    console.log(finalRadius);
-
     radius.value = withTiming(finalRadius, {
       duration: 1500,
     });

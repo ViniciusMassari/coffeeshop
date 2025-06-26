@@ -19,7 +19,6 @@ export const SplashScreenLogo = () => {
     <Animated.View
       layout={LinearTransition.springify().withCallback((finished) => {
         if (finished) {
-          console.log('finalizou animação');
           runOnJS(router.navigate)('/product/1');
           return;
         }

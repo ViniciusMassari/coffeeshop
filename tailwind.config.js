@@ -149,6 +149,9 @@ module.exports = {
         'soft-4': '0px 0px 40px rgba(38, 38, 38, 0.1)',
         cardShadow: '0px 2px 8px 0px rgba(0, 0, 0, 0.04);',
       },
+      borderRadius: {
+        tag: '100px', // Add a new border radius option
+      },
     },
   },
   plugins: [gluestackPlugin],
