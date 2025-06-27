@@ -1,5 +1,7 @@
+import { ActionButton } from '@components/ActionButton';
 import { CoffeeGoldenPrice } from '@components/CoffeeGoldenPrice';
 import { HeaderCart, HeaderContainer, HeaderText } from '@components/header';
+import { InputNumber } from '@components/InputNumber/';
 import { Select, SelectButton } from '@components/Select';
 import SmokeSVG from '@components/Smoke';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
@@ -12,7 +14,19 @@ export default function Product() {
 
   const options = ['114ml', '140ml', '227ml'];
 
-  const [selectedMl, setSelectedMl] = useState('');
+  const [selectedMl, setSelectedMl] = useState(options[0]);
+
+  const [quantity, setQuantity] = useState(1);
+
+  function changeQuantity(action: 'increase' | 'remove') {
+    setQuantity(() => {
+      if (action == 'increase') {
+        return quantity + 1;
+      }
+      if (action === 'remove' && quantity > 1) return quantity - 1;
+      return quantity;
+    });
+  }
 
   function changeOption(newMl: string) {
     setSelectedMl(newMl);
@@ -55,13 +69,13 @@ export default function Product() {
             />
           </View>
         </View>
-        <View className=' bg-gray-100 flex-1 w-full px-8 -mt-14'>
+        <View className='bg-gray-100 flex-1 w-full px-8 -mt-14'>
           <View className='mt-10'>
             <Text className='text-gray-600 text-title-xs font-normal'>
               Selecione o tamanho:
             </Text>
           </View>
-          <Select className='mt-2 flex-row gap-2 flex-1'>
+          <Select className='mt-2 flex-row gap-2  mb-5 items-stretch'>
             {options.map((option) => {
               return (
                 <SelectButton
@@ -73,6 +87,14 @@ export default function Product() {
               );
             })}
           </Select>
+          <View className='bg-gray-300 flex-row gap-4 p-2'>
+            <InputNumber quantity={quantity} changeQuantity={changeQuantity} />
+            <ActionButton
+              label='ADICIONAR'
+              variant='addToCart'
+              onPress={() => console.log('')}
+            />
+          </View>
         </View>
       </View>
     </>

@@ -2,14 +2,11 @@ import { Dimensions, Image, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { CoffeeCardInfo } from '../types/CoffeeCardInfo';
 import Animated, {
-  AnimatedRef,
-  Easing,
-  interpolate,
+  AnimatedRef, interpolate,
   useAnimatedRef,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
-  withTiming,
+  withSpring
 } from 'react-native-reanimated';
 import { coffeeImage } from '../assets/mock/coffeeImage';
 import { CoffeeGoldenPrice } from './CoffeeGoldenPrice';

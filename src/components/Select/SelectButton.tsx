@@ -20,9 +20,10 @@ export const SelectButton = ({
       onPress={() => onPress(buttonText)}
       className={`${
         isSelected
-          ? 'bg-white border-purple-300 border'
-          : 'bg-gray-300   border-transparent'
-      } border h-11 rounded-md    px-4 py-3  flex-shrink w-[100px]`}
+          ? 'bg-white border-purple-300 border '
+          : 'bg-gray-300 border-transparent'
+      }   h-11 rounded-md px-4 py-3 flex-shrink `}
+      style={{ width: 150 }}
     >
       <Text
         className={`${

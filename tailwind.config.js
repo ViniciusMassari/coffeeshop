@@ -17,6 +17,13 @@ module.exports = {
     },
   ],
   theme: {
+    colors: {
+      purple: {
+        100: '#EBE5F9',
+        300: '#8047F8',
+        700: '#4B2995',
+      },
+    },
     extend: {
       colors: {
         error: {
@@ -39,11 +46,6 @@ module.exports = {
         yellow: {
           500: '#DBAC2C',
           700: '#C47F17',
-        },
-        purple: {
-          100: '#EBE5F9',
-          300: '#8047F8',
-          700: '#4B2995',
         },
 
         typography: {
