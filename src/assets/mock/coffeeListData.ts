@@ -17,21 +17,23 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'O tradicional café feito com água quente e grãos moídos',
         price: '9,90',
         imageKey: 'expressoTradicional',
+        type: 'Tradicional',
       },
       {
         id: 2,
         title: 'Expresso Americano',
-        description:
-          'Expresso diluído, menos intenso que o tradicionalR$ 9,90        ',
+        description: 'Expresso diluído, menos intenso que o tradicional',
         price: '9,90',
         imageKey: 'expressoAmericano',
+        type: 'Tradicional',
       },
       {
         id: 3,
         title: 'Expresso Cremoso',
-        description: 'Café expresso tradicional com espuma cremosa        ',
+        description: 'Café expresso tradicional com espuma cremosa',
         price: '9,90',
         imageKey: 'expressoCremoso',
+        type: 'Tradicional',
       },
       {
         id: 4,
@@ -39,6 +41,7 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'Café expresso com o dobro de leite e espuma cremosa',
         price: '9,90',
         imageKey: 'latte',
+        type: 'Tradicional',
       },
       {
         id: 5,
@@ -46,6 +49,7 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'Bebida preparada com café expresso e cubos de gelo',
         price: '9,90',
         imageKey: 'expressoGelado',
+        type: 'Tradicional',
       },
     ],
   },
@@ -58,6 +62,7 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'Bebida com canela feita de doses de café, leite e espuma',
         price: '9,90',
         imageKey: 'cappucino',
+        type: 'Doce',
       },
       {
         id: 7,
@@ -66,6 +71,7 @@ export const coffeeListData: CoffeeListData[] = [
           'Café expresso com calda de chocolate, pouco leite e espuma',
         price: '9,90',
         imageKey: 'mocaccino',
+        type: 'Doce',
       },
       {
         id: 8,
@@ -74,6 +80,7 @@ export const coffeeListData: CoffeeListData[] = [
           'Bebida feita com chocolate dissolvido no leite quente e café',
         price: '9,90',
         imageKey: 'chocolateQuente',
+        type: 'Doce',
       },
     ],
   },
@@ -87,6 +94,7 @@ export const coffeeListData: CoffeeListData[] = [
           'Drink gelado de café expresso com rum, creme de leite e hortelã',
         price: '9,90',
         imageKey: 'cubano',
+        type: 'Especial',
       },
       {
         id: 10,
@@ -94,6 +102,7 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'Bebida adocicada preparada com café e leite de coco',
         price: '9,90',
         imageKey: 'havaiano',
+        type: 'Especial',
       },
       {
         id: 11,
@@ -101,6 +110,7 @@ export const coffeeListData: CoffeeListData[] = [
         description: 'Bebida preparada com grãos de café árabe e especiarias',
         price: '9,90',
         imageKey: 'arabe',
+        type: 'Especial',
       },
       {
         id: 12,
@@ -109,6 +119,7 @@ export const coffeeListData: CoffeeListData[] = [
           'Bebida a base de café, uísque irlandês, açúcar e chantilly',
         price: '9,90',
         imageKey: 'irlandes',
+        type: 'Especial',
       },
     ],
   },
@@ -116,6 +127,9 @@ export const coffeeListData: CoffeeListData[] = [
 
 export function coffeeSearch(id: number) {
   const coffees = coffeeListData.flatMap((c) => c.data);
-  const coffeeData = coffees.find((coffee) => coffee.id == id);
-  return coffeeData;
+  const target = coffees.find((c) => c.id === id);
+
+  return target;
 }
+
+coffeeSearch(2);

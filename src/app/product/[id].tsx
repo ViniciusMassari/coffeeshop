@@ -1,3 +1,4 @@
+import { coffeeSearch } from '@assets/mock/coffeeListData';
 import { ActionButton } from '@components/ActionButton';
 import { CoffeeGoldenPrice } from '@components/CoffeeGoldenPrice';
 import { HeaderCart, HeaderContainer, HeaderText } from '@components/header';
@@ -6,11 +7,13 @@ import { Select, SelectButton } from '@components/Select';
 import SmokeSVG from '@components/Smoke';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
 import { useLocalSearchParams, Link } from 'expo-router';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 
 export default function Product() {
   const { id } = useLocalSearchParams();
+
+  const data = coffeeSearch(+id);
 
   const options = ['114ml', '140ml', '227ml'];
 
@@ -18,18 +21,20 @@ export default function Product() {
 
   const [quantity, setQuantity] = useState(1);
 
-  function changeQuantity(action: 'increase' | 'remove') {
-    setQuantity(() => {
+  const changeQuantity = useCallback((action: 'increase' | 'remove') => {
+    setQuantity((prev) => {
       if (action == 'increase') {
-        return quantity + 1;
+        return prev + 1;
       }
-      if (action === 'remove' && quantity > 1) return quantity - 1;
-      return quantity;
+      if (action === 'remove' && prev > 1) return prev - 1;
+      return prev;
     });
-  }
+  }, []);
 
   function changeOption(newMl: string) {
-    setSelectedMl(newMl);
+    setSelectedMl((prev) => {
+      return prev != newMl ? newMl : prev;
+    });
   }
 
   return (
@@ -51,15 +56,13 @@ export default function Product() {
         <View className='px-8'>
           <View className='mb-8'>
             <Text className='text-white rounded-tag bg-gray-800 self-start px-3 py-[6px] text-tag mb-3'>
-              ESPECIAL
+              {data?.type}
             </Text>
             <View className='flex-row justify-between items-center mb-5'>
-              <Text className='text-title-lg text-white'>Irlandês</Text>
+              <Text className='text-title-lg text-white'>{data?.title}</Text>
               <CoffeeGoldenPrice price='9,90' variant='lg' />
             </View>
-            <Text className='text-gray-500'>
-              Bebida a base de café, uísque irlandês, açúcar e chantilly
-            </Text>
+            <Text className='text-gray-500'>{data?.description}</Text>
           </View>
           <View className='items-center z-10'>
             <SmokeSVG />
@@ -92,7 +95,11 @@ export default function Product() {
             <ActionButton
               label='ADICIONAR'
               variant='addToCart'
-              onPress={() => console.log('')}
+              onPress={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('');
+              }}
             />
           </View>
         </View>

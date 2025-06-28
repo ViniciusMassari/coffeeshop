@@ -1,8 +1,9 @@
 import { Button, ButtonText } from './ui/button';
+import { GestureResponderEvent } from 'react-native';
 
 type ActionButtonProps = {
   label?: string;
-  onPress: () => void;
+  onPress: (e: GestureResponderEvent) => void;
   variant?: 'addToCart' | 'navigateHome' | 'confirmOrder';
 };
 export const ActionButton = ({

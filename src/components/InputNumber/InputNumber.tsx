@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native';
-import React from 'react';
+import React, { memo } from 'react';
 import { InputNumberButton } from './InputNumberButton';
 import { AddIcon, RemoveIcon } from '@components/ui/icon';
 
-export const InputNumber = ({
+const InputNumberComponent = ({
   quantity = 1,
   changeQuantity,
 }: {
@@ -27,3 +27,5 @@ export const InputNumber = ({
     </View>
   );
 };
+
+export const InputNumber = memo(InputNumberComponent);

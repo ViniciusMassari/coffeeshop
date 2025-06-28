@@ -1,12 +1,12 @@
-import { Pressable, Text, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { Pressable, Text } from 'react-native';
+import React, { memo, useEffect, useState } from 'react';
 
 interface SelectButtonProps {
   buttonText: string;
   selectedOption: string;
   onPress: (newMl: string) => void;
 }
-export const SelectButton = ({
+export const SelectButtonComponent = ({
   buttonText,
   selectedOption,
   onPress,
@@ -14,7 +14,7 @@ export const SelectButton = ({
   const [isSelected, setIsSelected] = useState(false);
   useEffect(() => {
     selectedOption === buttonText ? setIsSelected(true) : setIsSelected(false);
-  }, []);
+  }, [selectedOption]);
   return (
     <Pressable
       onPress={() => onPress(buttonText)}
@@ -35,3 +35,5 @@ export const SelectButton = ({
     </Pressable>
   );
 };
+
+export const SelectButton = memo(SelectButtonComponent);

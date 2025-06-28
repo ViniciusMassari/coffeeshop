@@ -3,10 +3,11 @@ import { coffeeImage } from '../assets/mock/coffeeImage';
 type Label = 'Tradicional' | 'Doce' | 'Especial';
 
 export interface CoffeeCardInfo {
-  id:number;
+  id: number;
   title: string;
   label: Label;
   description: string;
   price: string;
   imageKey: keyof typeof coffeeImage;
+  type: Label;
 }

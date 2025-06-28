@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, ButtonIcon } from '@components/ui/button';
-import { RemoveIcon } from '@components/ui/icon';
 import { ReactComponent } from 'react-native-css-interop/dist/types';
 
 export const InputNumberButton = ({
@@ -17,7 +16,7 @@ export const InputNumberButton = ({
     <Button
       className={`${isPressed && 'bg-gray-300'}`}
       isPressed={isPressed}
-      onPress={() => {
+      onPress={(e) => {
         setIsPressed(true);
         if (action == 'increase') changeQuantity('increase');
         if (action == 'remove') changeQuantity('remove');

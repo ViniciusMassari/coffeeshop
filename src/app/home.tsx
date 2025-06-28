@@ -10,7 +10,6 @@ import { CoffeeListHeader } from '../components/CoffeeList/CoffeeListHeader';
 import { useRef } from 'react';
 import { options } from '../assets/mock/coffeeOptions';
 import { Tag } from '../components/Tag';
-import { Link } from 'expo-router';
 
 export default function Home() {
   const sectionListRef = useRef<SectionList>(null);
@@ -38,7 +37,7 @@ export default function Home() {
       </HeaderContainer>
       <SectionList
         ListHeaderComponent={() => (
-          <View>
+          <View className='flex-1'>
             <StatusBar animated={true} translucent style='light' />
 
             <View className='bg-gray-900 h-72  px-8 relative'>
