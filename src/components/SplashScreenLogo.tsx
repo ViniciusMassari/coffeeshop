@@ -19,7 +19,7 @@ export const SplashScreenLogo = () => {
     <Animated.View
       layout={LinearTransition.springify().withCallback((finished) => {
         if (finished) {
-          runOnJS(router.navigate)('/home');
+          runOnJS(router.navigate)('/cart');
           return;
         }
       })}

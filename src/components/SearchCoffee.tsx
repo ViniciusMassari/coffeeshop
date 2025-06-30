@@ -11,7 +11,7 @@ export const SearchCoffee = () => {
       </Text>
       <Input
         accessibilityHint='Tab to start editing'
-        className='mt-4 px-3 bg-gray-800 border-transparent '
+        className='mt-4 px-3 bg-gray-800'
         size='lg'
       >
         <InputSlot>

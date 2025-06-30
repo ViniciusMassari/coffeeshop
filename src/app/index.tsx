@@ -1,4 +1,5 @@
 import { useFonts } from 'expo-font';
+import { router } from 'expo-router';
 
 import { SplashScreen } from '../screens/SplashScreen';
 import RippleEffect from '@components/RippleEffect';
