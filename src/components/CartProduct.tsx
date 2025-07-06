@@ -25,6 +25,9 @@ export const CartProduct = () => {
           </Pressable>
         </View>
       </View>
+      <View className='flex-row-reverse flex-1  h-full'>
+        <Text className='font-title text-title-sm'>R$ 9,90</Text>
+      </View>
     </View>
   );
 };

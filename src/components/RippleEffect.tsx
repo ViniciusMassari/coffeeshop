@@ -9,7 +9,7 @@ import {
 } from 'react-native-reanimated';
 import { Canvas, Circle } from '@shopify/react-native-skia';
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 const RippleEffect = ({ children }: { children: ReactNode }) => {
   const radius = useSharedValue(0);
@@ -17,13 +17,6 @@ const RippleEffect = ({ children }: { children: ReactNode }) => {
   // Valores para gerar o círculo no centro da tela
   const centerX = width / 2;
   const centerY = height / 2;
-
-  // monitora mudança no valor de radius e reativa a animação quando houver mudança
-  // const animatedRadius = useDerivedValue(() => {
-  //   console.log('dentro do useDerived');
-
-  //   return withTiming(radius.value, { duration: 1500 });
-  // });
 
   useEffect(() => {
     const finalRadius = Math.hypot(width, height);
