@@ -9,7 +9,7 @@ import Trash from '@assets/Trash';
 export const CartProduct = () => {
   const { quantity, changeQuantity } = useChangeQuantity();
   return (
-    <View className=' h-[117px] flex-1 flex-row items-center py-4 px-8'>
+    <View className=' h-[117px] flex-1 flex-row items-center py-4 px-8 bg-gray-100 border-b border-b-gray-300'>
       <Image className='w-16 h-16 mr-5' source={coffeeImage['cappucino']} />
       <View>
         <Text className='text-title-sm font-body font-normal color-gray-900'>
@@ -26,7 +26,7 @@ export const CartProduct = () => {
         </View>
       </View>
       <View className='flex-row-reverse flex-1  h-full'>
-        <Text className='font-title text-title-sm'>R$ 9,90</Text>
+        <Text className='font-title text-title-sm'>R$9,90</Text>
       </View>
     </View>
   );

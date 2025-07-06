@@ -11,7 +11,7 @@ import { ConfirmOrder } from '@components/ConfirmOrder';
 export default function Cart() {
   return (
     <>
-      <HeaderContainer bg='#FAFAFA'>
+      <HeaderContainer bg='#FAFAFA' className='border-b'>
         <HeaderText>
           <Link href={'/home'}>
             <Icon
@@ -29,8 +29,17 @@ export default function Cart() {
       <ScrollView>
         <GestureHandlerRootView>
           <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
+          <SwipeableCartItem />
         </GestureHandlerRootView>
       </ScrollView>
+      <ConfirmOrder />
     </>
   );
 }

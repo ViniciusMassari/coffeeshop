@@ -150,9 +150,10 @@ module.exports = {
         'soft-3': '0px 0px 30px rgba(38, 38, 38, 0.1)',
         'soft-4': '0px 0px 40px rgba(38, 38, 38, 0.1)',
         cardShadow: '0px 2px 8px 0px rgba(0, 0, 0, 0.04);',
+        confirmOrder: '0px -2px 16px 0px rgba(0, 0, 0, 0.08)',
       },
       borderRadius: {
-        tag: '100px', // Add a new border radius option
+        tag: '100px',
       },
     },
   },
