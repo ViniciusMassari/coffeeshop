@@ -9,12 +9,12 @@ export const HeaderContainer = ({
   bg,
   ...props
 }: PropsWithChildren<HeaderContainerProps>) => {
+  const defaultColor = '#272221';
   return (
     <View
-      style={{ backgroundColor: bg ?? '' }}
+      style={{ backgroundColor: bg || defaultColor }}
       {...props}
-      className='justify-between items-center 
-        flex-row sticky bg-gray-900 z-10 min-h-20  px-8 py-5'
+      className='justify-between items-center flex-row sticky bg-gray-900 z-10 min-h-20  px-8 py-5'
     >
       {children}
     </View>

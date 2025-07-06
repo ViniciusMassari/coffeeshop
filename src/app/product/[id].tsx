@@ -6,8 +6,9 @@ import { InputNumber } from '@components/InputNumber/';
 import { Select, SelectButton } from '@components/Select';
 import SmokeSVG from '@components/Smoke';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
+import { useChangeQuantity } from '@utils/hooks/changeQuantity';
 import { useLocalSearchParams, Link } from 'expo-router';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 
 export default function Product() {
@@ -19,17 +20,7 @@ export default function Product() {
 
   const [selectedMl, setSelectedMl] = useState(options[0]);
 
-  const [quantity, setQuantity] = useState(1);
-
-  const changeQuantity = useCallback((action: 'increase' | 'remove') => {
-    setQuantity((prev) => {
-      if (action == 'increase') {
-        return prev + 1;
-      }
-      if (action === 'remove' && prev > 1) return prev - 1;
-      return prev;
-    });
-  }, []);
+  const { changeQuantity, quantity } = useChangeQuantity();
 
   function changeOption(newMl: string) {
     setSelectedMl((prev) => {

@@ -11,7 +11,7 @@ const InputNumberComponent = ({
   changeQuantity: (action: 'increase' | 'remove') => void;
 }) => {
   return (
-    <View className='flex-row rounded-md gap-1 items-center'>
+    <View className='flex-row rounded-md gap-1 items-center border border-gray-400'>
       <InputNumberButton
         action='remove'
         changeQuantity={changeQuantity}
