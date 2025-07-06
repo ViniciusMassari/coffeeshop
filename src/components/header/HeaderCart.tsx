@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
 
 import { Box } from '../ui/box';
-import Cart from '../../assets/Cart';
 import { Link } from 'expo-router';
+import CartSVG from '../../assets/Cart';
 
 export const HeaderCart = () => {
   return (
@@ -11,7 +11,7 @@ export const HeaderCart = () => {
         <Text className='text-white text-sm'>1</Text>
       </View>
       <Link href={'/cart'}>
-        <Cart pathFill='#C47F17' />
+        <CartSVG pathFill='#C47F17' />
       </Link>
     </Box>
   );
