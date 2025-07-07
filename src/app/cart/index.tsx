@@ -2,11 +2,8 @@ import React from 'react';
 import { HeaderContainer, HeaderText } from '@components/header';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
 import { Link } from 'expo-router';
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import 'react-native-gesture-handler';
-import { SwipeableCartItem } from '@components/SwipeableCartItem';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ConfirmOrder } from '@components/ConfirmOrder';
 import CartSVG from '@assets/Cart';
 
 export default function Cart() {
