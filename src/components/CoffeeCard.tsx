@@ -2,19 +2,23 @@ import { Dimensions, Image, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { CoffeeCardInfo } from '../types/CoffeeCardInfo';
 import Animated, {
-  AnimatedRef, interpolate,
+  AnimatedRef,
+  interpolate,
   useAnimatedRef,
   useAnimatedStyle,
   useSharedValue,
-  withSpring
+  withSpring,
 } from 'react-native-reanimated';
 import { coffeeImage } from '../assets/mock/coffeeImage';
 import { CoffeeGoldenPrice } from './CoffeeGoldenPrice';
+import { Link } from 'expo-router';
+import { createAnimatedComponent } from 'react-native-reanimated/lib/typescript/createAnimatedComponent';
 
 interface CoffeeCardProps {
   coffeeCardInfo: CoffeeCardInfo;
   scrollXPosition?: number;
 }
+
 export const CoffeeCard = ({
   coffeeCardInfo,
   scrollXPosition,
@@ -77,9 +81,16 @@ export const CoffeeCard = ({
         <Text className=' text-[10px] uppercase bg color-purple-300 bg-purple-100 px-2 py-1 rounded-[100px] text-center'>
           {coffeeCardInfo.label}
         </Text>
-        <Text className='color-gray-800 text-title-md  text-center'>
-          {coffeeCardInfo.title}
-        </Text>
+        <Link
+          href={{
+            pathname: '/product/[id]',
+            params: { id: coffeeCardInfo.id },
+          }}
+        >
+          <Text className='color-gray-800 text-title-md  text-center'>
+            {coffeeCardInfo.title}
+          </Text>
+        </Link>
         <Text className='color-gray-600 text-[12px] text-center px-2'>
           {coffeeCardInfo.description}
         </Text>

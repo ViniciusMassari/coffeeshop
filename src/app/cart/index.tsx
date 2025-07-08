@@ -1,10 +1,12 @@
-import React from 'react';
 import { HeaderContainer, HeaderText } from '@components/header';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { ScrollView, Text } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SwipeableCartItem } from '@components/SwipeableCartItem';
+import { ConfirmOrder } from '@components/ConfirmOrder';
 import 'react-native-gesture-handler';
-import CartSVG from '@assets/Cart';
+import Animated, { FadingTransition } from 'react-native-reanimated';
 
 export default function Cart() {
   return (
@@ -24,7 +26,7 @@ export default function Cart() {
           </Text>
         </HeaderText>
       </HeaderContainer>
-      <View className='items-center flex-1 bg-white '>
+      {/* <View className='items-center flex-1 bg-white '>
         <View className='items-center mt-16'>
           <CartSVG pathFill='#D7D5D5' />
           <Text className='text-title-xs font-normal color-gray-600'>
@@ -39,21 +41,14 @@ export default function Cart() {
             CONFIRMAR PEDIDO
           </Text>
         </Link>
-      </View>
-      {/* <ScrollView>
+      </View> */}
+
+      <Animated.ScrollView layout={FadingTransition.duration(500)}>
         <GestureHandlerRootView>
           <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
-          <SwipeableCartItem />
         </GestureHandlerRootView>
-      </ScrollView>
-      <ConfirmOrder /> */}
+      </Animated.ScrollView>
+      <ConfirmOrder />
     </>
   );
 }
