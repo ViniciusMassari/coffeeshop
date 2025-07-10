@@ -1,16 +1,14 @@
-import { ImageSourcePropType } from 'react-native';
-
 export const coffeeImage = {
-  expressoAmericano: require('@assets/img/expressoAmericano.png'),
+  expressoamericano: require('@assets/img/expressoAmericano.png'),
   arabe: require('@assets/img/arabe.png'),
-  cafeComLeite: require('@assets/img/cafeComLeite.png'),
-  cafeGelado: require('@assets/img/cafeGelado.png'),
+  cafecomleite: require('@assets/img/cafeComLeite.png'),
+  cafegelado: require('@assets/img/cafeGelado.png'),
   cappucino: require('@assets/img/cappucino.png'),
-  chocolateQuente: require('@assets/img/chocolateQuente.png'),
+  chocolatequente: require('@assets/img/chocolateQuente.png'),
   cubano: require('@assets/img/cubano.png'),
-  expressoCremoso: require('@assets/img/expressoCremoso.png'),
-  expressoGelado: require('@assets/img/expressoGelado.png'),
-  expressoTradicional: require('@assets/img/expressoTradicional.png'),
+  expressocremoso: require('@assets/img/expressoCremoso.png'),
+  expressogelado: require('@assets/img/expressoGelado.png'),
+  expressotradicional: require('@assets/img/expressoTradicional.png'),
   havaiano: require('@assets/img/havaiano.png'),
   macchiato: require('@assets/img/macchiato.png'),
   latte: require('@assets/img/latte.png'),

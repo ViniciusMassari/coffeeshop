@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Toast } from 'toastify-react-native';
 import { router } from 'expo-router';
+import { useCart } from 'src/context/CartContext';
 
 export default function Product() {
   const { id } = useLocalSearchParams();
@@ -21,6 +22,8 @@ export default function Product() {
   const options = ['114ml', '140ml', '227ml'];
 
   const [selectedMl, setSelectedMl] = useState(options[0]);
+
+  const { addToCart } = useCart();
 
   const { changeQuantity, quantity } = useChangeQuantity();
   function changeOption(newMl: string) {
@@ -83,11 +86,24 @@ export default function Product() {
             })}
           </Select>
           <View className='bg-gray-300 flex-row gap-4 p-2'>
-            <InputNumber quantity={quantity} changeQuantity={changeQuantity} />
+            <InputNumber
+              quantity={quantity}
+              changeQuantity={changeQuantity}
+              productInfo={{ productId: data!.id, ml: selectedMl }}
+            />
             <ActionButton
               label='ADICIONAR'
               variant='addToCart'
-              onPress={(e) => {
+              onPress={() => {
+                if (data) {
+                  addToCart({
+                    id: data.id,
+                    price: +data.price.replace(',', '.'),
+                    product_name: data.title,
+                    quantity,
+                    ml: selectedMl,
+                  });
+                }
                 Toast.show({
                   text1: `${quantity} ${data?.title} adicionado ao carrinho`,
                   position: 'bottom',

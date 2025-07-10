@@ -1,17 +1,40 @@
 import { useCallback, useState } from 'react';
+import { useCart } from 'src/context/CartContext';
 
-export function useChangeQuantity() {
-  const changeQuantity = useCallback((action: 'increase' | 'remove') => {
-    setQuantity((prev) => {
-      if (action == 'increase') {
-        return prev + 1;
-      }
-      if (action === 'remove' && prev > 1) return prev - 1;
-      return prev;
-    });
-  }, []);
+export interface ProductInfo {
+  productId: number;
+  ml: string;
+}
 
-  const [quantity, setQuantity] = useState(1);
+export function useChangeQuantity(initialQuantity?: number) {
+  const { updateQuantity } = useCart();
+  const [quantity, setQuantity] = useState(initialQuantity ?? 1);
+  const changeQuantity = useCallback(
+    (action: 'increase' | 'remove', productInfo?: ProductInfo) => {
+      setQuantity((prev) => {
+        if (action == 'increase') {
+          const newValue = prev + 1;
+          if (productInfo) {
+            updateQuantity(productInfo.productId, newValue, productInfo.ml);
+          }
+          return newValue;
+        }
+        if (action === 'remove' && prev > 1) {
+          const newValue = prev - 1;
+          if (productInfo) {
+            updateQuantity(productInfo.productId, newValue, productInfo.ml);
+          }
+          return newValue;
+        }
+        const newValue = prev;
+        if (productInfo) {
+          updateQuantity(productInfo.productId, newValue, productInfo.ml);
+        }
+        return prev;
+      });
+    },
+    []
+  );
 
   return { quantity, setQuantity, changeQuantity };
 }

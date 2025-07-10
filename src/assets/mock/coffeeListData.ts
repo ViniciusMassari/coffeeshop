@@ -16,7 +16,7 @@ export const coffeeListData: CoffeeListData[] = [
         title: 'Expresso Tradicional',
         description: 'O tradicional café feito com água quente e grãos moídos',
         price: '9,90',
-        imageKey: 'expressoTradicional',
+        imageKey: 'expressotradicional',
         type: 'Tradicional',
       },
       {
@@ -24,7 +24,7 @@ export const coffeeListData: CoffeeListData[] = [
         title: 'Expresso Americano',
         description: 'Expresso diluído, menos intenso que o tradicional',
         price: '9,90',
-        imageKey: 'expressoAmericano',
+        imageKey: 'expressoamericano',
         type: 'Tradicional',
       },
       {
@@ -32,7 +32,7 @@ export const coffeeListData: CoffeeListData[] = [
         title: 'Expresso Cremoso',
         description: 'Café expresso tradicional com espuma cremosa',
         price: '9,90',
-        imageKey: 'expressoCremoso',
+        imageKey: 'expressocremoso',
         type: 'Tradicional',
       },
       {
@@ -48,7 +48,7 @@ export const coffeeListData: CoffeeListData[] = [
         title: 'Expresso Gelado',
         description: 'Bebida preparada com café expresso e cubos de gelo',
         price: '9,90',
-        imageKey: 'expressoGelado',
+        imageKey: 'expressogelado',
         type: 'Tradicional',
       },
     ],
@@ -79,7 +79,7 @@ export const coffeeListData: CoffeeListData[] = [
         description:
           'Bebida feita com chocolate dissolvido no leite quente e café',
         price: '9,90',
-        imageKey: 'chocolateQuente',
+        imageKey: 'chocolatequente',
         type: 'Doce',
       },
     ],
