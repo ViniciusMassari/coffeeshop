@@ -5,9 +5,11 @@ import CartSVG from '@assets/Cart';
 import { Box } from './ui/box';
 import { router } from 'expo-router';
 import { ToastConfigParams } from 'toastify-react-native/utils/interfaces';
+import { useCart } from 'src/context/CartContext';
 
 export function AddedToCartToast(props: ToastConfigParams) {
   const screenWidth = Dimensions.get('screen').width;
+  const { state } = useCart();
 
   return (
     <HStack
@@ -16,7 +18,7 @@ export function AddedToCartToast(props: ToastConfigParams) {
     >
       <Box className='justify-center items-center -mt-2'>
         <View className='rounded-full  items-center -right-3 -mb-2 text-center h-5 w-5 bg-purple-300 z-10'>
-          <Text className='text-white text-sm'>1</Text>
+          <Text className='text-white text-sm'>{state.items.length}</Text>
         </View>
         <Icon
           className='color-white bg-gray-500 rounded-md h-10 w-10'
