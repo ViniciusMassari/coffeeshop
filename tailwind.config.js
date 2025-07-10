@@ -124,6 +124,13 @@ module.exports = {
             fontWeight: '700',
           },
         ],
+        'title-xxs': [
+          '12px',
+          {
+            lineHeight: '160%',
+            fontWeight: '700',
+          },
+        ],
         tag: [
           '10px',
           {

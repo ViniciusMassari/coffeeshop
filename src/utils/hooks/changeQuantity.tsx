@@ -11,7 +11,7 @@ export function useChangeQuantity() {
     });
   }, []);
 
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   return { quantity, setQuantity, changeQuantity };
 }

@@ -10,6 +10,8 @@ import { useChangeQuantity } from '@utils/hooks/changeQuantity';
 import { useLocalSearchParams, Link } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
+import { Toast } from 'toastify-react-native';
+import { router } from 'expo-router';
 
 export default function Product() {
   const { id } = useLocalSearchParams();
@@ -21,7 +23,6 @@ export default function Product() {
   const [selectedMl, setSelectedMl] = useState(options[0]);
 
   const { changeQuantity, quantity } = useChangeQuantity();
-
   function changeOption(newMl: string) {
     setSelectedMl((prev) => {
       return prev != newMl ? newMl : prev;
@@ -87,9 +88,16 @@ export default function Product() {
               label='ADICIONAR'
               variant='addToCart'
               onPress={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('');
+                Toast.show({
+                  text1: `${quantity} ${data?.title} adicionado ao carrinho`,
+                  position: 'bottom',
+                  visibilityTime: 4000,
+                  // @ts-ignore
+                  type: 'custom',
+                  useModal: false,
+                  autoHide: true,
+                });
+                router.navigate('/home');
               }}
             />
           </View>

@@ -11,7 +11,6 @@ import { useRef } from 'react';
 import { options } from '../assets/mock/coffeeOptions';
 import { Tag } from '../components/Tag';
 import Animated, {
-  Easing,
   FadeInDown,
   SlideInDown,
   SlideInRight,
