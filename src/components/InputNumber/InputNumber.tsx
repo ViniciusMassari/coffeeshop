@@ -12,7 +12,7 @@ export const InputNumber = ({
   quantity: number;
   changeQuantity: (
     action: 'increase' | 'remove',
-    productInfo?: ProductInfo
+    productInfo?: ProductInfo,
   ) => void;
   productInfo?: ProductInfo;
 }) => {
@@ -20,7 +20,6 @@ export const InputNumber = ({
     <View className='flex-row rounded-md gap-1 items-center border border-gray-400'>
       <InputNumberButton
         action='remove'
-        productInfo={productInfo}
         changeQuantity={changeQuantity}
         icon={RemoveIcon}
       />
@@ -28,7 +27,6 @@ export const InputNumber = ({
       <Text className='text-title-sm font-normal'>{quantity}</Text>
       <InputNumberButton
         action='increase'
-        productInfo={productInfo}
         changeQuantity={changeQuantity}
         icon={AddIcon}
       />

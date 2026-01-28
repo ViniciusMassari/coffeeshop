@@ -13,8 +13,8 @@ export default function RootLayout() {
     <GluestackUIProvider mode='light' style={{ flex: 1 }}>
       <CartProvider>
         <Stack screenOptions={{ headerShown: false }} />
+        <ToastManager config={toastConfig} />
       </CartProvider>
-      <ToastManager config={toastConfig} />
     </GluestackUIProvider>
   );
 }

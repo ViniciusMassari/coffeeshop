@@ -8,7 +8,7 @@ import SmokeSVG from '@components/Smoke';
 import { ArrowLeftIcon, Icon } from '@components/ui/icon';
 import { useChangeQuantity } from '@utils/hooks/changeQuantity';
 import { useLocalSearchParams, Link } from 'expo-router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Toast } from 'toastify-react-native';
 import { router } from 'expo-router';
@@ -86,11 +86,7 @@ export default function Product() {
             })}
           </Select>
           <View className='bg-gray-300 flex-row gap-4 p-2'>
-            <InputNumber
-              quantity={quantity}
-              changeQuantity={changeQuantity}
-              productInfo={{ productId: data!.id, ml: selectedMl }}
-            />
+            <InputNumber quantity={quantity} changeQuantity={changeQuantity} />
             <ActionButton
               label='ADICIONAR'
               variant='addToCart'

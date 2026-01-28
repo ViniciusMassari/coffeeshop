@@ -33,7 +33,7 @@ export function useChangeQuantity(initialQuantity?: number) {
         return prev;
       });
     },
-    []
+    [updateQuantity],
   );
 
   return { quantity, setQuantity, changeQuantity };

@@ -14,14 +14,12 @@ interface CartProductProps {
   cartProductInfo: CartProductType;
   productId: number;
 }
-export const CartProduct = ({
-  cartProductInfo,
-  productId,
-}: CartProductProps) => {
+export const CartProduct = ({ cartProductInfo }: CartProductProps) => {
   const { removeFromCart } = useCart();
   const { quantity, changeQuantity } = useChangeQuantity(
-    cartProductInfo.quantity
+    cartProductInfo.quantity,
   );
+
   return (
     <View className=' h-[117px] flex-1 flex-row items-center py-4 px-8 bg-gray-100 border-b border-b-gray-300'>
       <Image
@@ -46,7 +44,7 @@ export const CartProduct = ({
               productId: cartProductInfo.id,
               ml: cartProductInfo.ml,
             }}
-            quantity={quantity}
+            quantity={cartProductInfo.quantity}
             changeQuantity={changeQuantity}
           />
           <Pressable
