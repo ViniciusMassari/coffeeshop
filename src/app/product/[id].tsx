@@ -25,7 +25,7 @@ export default function Product() {
 
   const { addToCart } = useCart();
 
-  const { changeQuantity, quantity } = useChangeQuantity();
+  const { quantity, increase, decrease } = useChangeQuantity();
   function changeOption(newMl: string) {
     setSelectedMl((prev) => {
       return prev != newMl ? newMl : prev;
@@ -86,7 +86,11 @@ export default function Product() {
             })}
           </Select>
           <View className='bg-gray-300 flex-row gap-4 p-2'>
-            <InputNumber quantity={quantity} changeQuantity={changeQuantity} />
+            <InputNumber
+              quantity={quantity}
+              onIncrease={increase}
+              onDecrease={decrease}
+            />
             <ActionButton
               label='ADICIONAR'
               variant='addToCart'

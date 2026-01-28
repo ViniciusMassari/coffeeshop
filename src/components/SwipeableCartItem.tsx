@@ -29,10 +29,7 @@ export const SwipeableCartItem = ({
         </Pressable>
       )}
     >
-      <CartProduct
-        productId={cartProductInfo.id}
-        cartProductInfo={cartProductInfo}
-      />
+      <CartProduct cartProductInfo={cartProductInfo} />
     </Swipeable>
   );
 };

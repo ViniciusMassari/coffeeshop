@@ -1,8 +1,9 @@
 import { SectionList, Text, View } from 'react-native';
 import React from 'react';
-import { coffeeListData } from '@/src/assets/mock/coffeeListData';
+
 import { HorizontalCoffeeCard } from '../HorizontalCoffeeCard';
 import { CoffeeListHeader } from './CoffeeListHeader';
+import { coffeeListData } from '@assets/mock/coffeeListData';
 
 export function CoffeeList() {
   // renderizar componente
